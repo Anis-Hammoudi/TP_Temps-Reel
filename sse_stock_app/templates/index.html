@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Long Polling - Statut de tâche</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Mise à jour d'état (Long Polling)</h1>
+
+    <div class="card">
+      <div class="row">
+        <span class="status-label">Statut actuel:</span>
+        <span id="status" class="badge" data-status="Inconnu">Inconnu…</span>
+        <span id="version" class="muted">(version: -1)</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Simuler une mise à jour (Admin)</h2>
+      <div class="row actions">
+        <select id="statusInput">
+          <option>En attente</option>
+          <option>En cours</option>
+          <option>Terminée</option>
+          <option>Échec</option>
+        </select>
+        <button id="updateBtn" class="btn">Mettre à jour</button>
+        <span id="updateMsg" class="muted"></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
