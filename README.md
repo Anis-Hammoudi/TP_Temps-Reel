@@ -19,5 +19,6 @@ Application de streaming de données boursières en temps réel via Server-Sent 
 
 ---
 
-**Auteur :** [Votre nom]
+**Auteur :Anis Hammoudi  5AL- ESGI
+
 
