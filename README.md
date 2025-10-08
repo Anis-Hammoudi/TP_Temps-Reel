@@ -1,3 +1,7 @@
+**Auteur : Anis Hammoudi  5AL- ESGI**
+
+
+
 # TP Temps Réel
 
 Ce dépôt contient trois projets indépendants illustrant des techniques de communication temps réel côté serveur et client :
@@ -90,6 +94,5 @@ Le projet `chat-multi-salons` démontre comment implémenter la scalabilité hor
 
 ---
 
-**Auteur :Anis Hammoudi  5AL- ESGI
 
 
