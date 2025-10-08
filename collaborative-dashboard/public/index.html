@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord Collaboratif</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Notes Collaboratives</h1>
+            <div class="auth-section" id="authSection">
+                <!-- Formulaires d'authentification -->
+                <div id="authForms" class="auth-forms">
+                    <!-- Formulaire de connexion -->
+                    <div id="loginForm" class="auth-form">
+                        <h3>Connexion</h3>
+                        <input type="text" id="loginUsername" placeholder="Nom d'utilisateur" required>
+                        <input type="password" id="loginPassword" placeholder="Mot de passe" required>
+                        <button id="loginBtn" class="btn btn-primary">Se connecter</button>
+                        <p>Pas de compte ? <a href="#" id="showRegister">S'inscrire</a></p>
+                    </div>
+                    
+                    <!-- Formulaire d'inscription -->
+                    <div id="registerForm" class="auth-form" style="display: none;">
+                        <h3>Inscription</h3>
+                        <input type="text" id="registerUsername" placeholder="Nom d'utilisateur" required>
+                        <input type="password" id="registerPassword" placeholder="Mot de passe" required>
+                        <input type="password" id="confirmPassword" placeholder="Confirmer le mot de passe" required>
+                        <button id="registerBtn" class="btn btn-primary">S'inscrire</button>
+                        <p>Déjà un compte ? <a href="#" id="showLogin">Se connecter</a></p>
+                    </div>
+                </div>
+                
+                <!-- Informations utilisateur connecté -->
+                <div id="userInfo" class="user-info" style="display: none;">
+                    <div class="user-avatar">U</div>
+                    <div class="user-details">
+                        <span id="currentUsername">Utilisateur</span>
+                        <button id="logoutBtn" class="btn btn-secondary btn-small">Déconnexion</button>
+                    </div>
+                </div>
+                
+                <div id="connectionStatus" class="connection-status">
+                    <span id="statusText">Non connecté</span>
+                    <div id="statusIndicator" class="status-indicator offline"></div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Section pour ajouter une nouvelle note -->
+            <section class="add-note-section" id="addNoteSection">
+                <div id="authRequired" class="auth-required" style="display: none;">
+                    <h3>Connexion requise</h3>
+                    <p>Vous devez être connecté pour ajouter des notes.</p>
+                    <p class="auth-subtitle">Les notes existantes restent consultables.</p>
+                </div>
+                
+                <div id="noteFormSection" class="note-form-section">
+                    <h2>Ajouter une note</h2>
+                    <div class="note-form">
+                        <textarea 
+                            id="noteContent" 
+                            placeholder="Votre note..." 
+                            rows="3"
+                            maxlength="500">
+                        </textarea>
+                        <div class="form-actions">
+                            <button id="addNoteBtn" class="btn btn-primary">
+                                Ajouter
+                            </button>
+                            <span class="char-count">
+                                <span id="charCount">0</span>/500
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section d'affichage des notes -->
+            <section class="notes-section">
+                <div class="notes-header">
+                    <h2>Notes</h2>
+                    <div class="notes-count">
+                        <span id="notesCount">0</span>
+                    </div>
+                </div>
+                
+                <div id="notesContainer" class="notes-container">
+                    <!-- Les notes seront affichées ici dynamiquement -->
+                </div>
+                
+                <div id="emptyState" class="empty-state">
+                    <div class="empty-icon">�</div>
+                    <p>Aucune note</p>
+                    <p class="empty-subtitle">Ajoutez la première !</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal pour éditer une note -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Modifier</h3>
+                <button class="modal-close" id="closeEditModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <textarea 
+                    id="editNoteContent" 
+                    rows="4" 
+                    maxlength="500"
+                    placeholder="Modifiez votre note...">
+                </textarea>
+                <div class="char-count">
+                    <span id="editCharCount">0</span>/500
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelEdit" class="btn btn-secondary">Annuler</button>
+                <button id="saveEdit" class="btn btn-primary">Sauvegarder</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

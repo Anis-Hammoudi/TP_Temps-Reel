@@ -4,7 +4,7 @@
 
 # TP Temps Réel
 
-Ce dépôt contient trois projets indépendants illustrant des techniques de communication temps réel côté serveur et client :
+Ce dépôt contient quatre projets indépendants illustrant des techniques de communication temps réel côté serveur et client :
 
 ## 1. chat-Websocket
 Un chat minimaliste utilisant WebSocket, Node.js et une interface web statique.
@@ -28,11 +28,31 @@ Application de chat en temps réel avec système de salons (rooms) utilisant Soc
   - **🆕 Haute disponibilité et scalabilité horizontale**
 - Dossier : `chat-multi-salons/`
 
+## 4. collaborative-dashboard 🆕
+Application de tableau de bord collaboratif avec authentification JWT et gestion de notes en temps réel.
+- Technologies : Node.js, Express, Socket.IO, JWT, bcrypt, HTML, CSS, JS
+- Fonctionnalités :
+  - **🔐 Système d'authentification sécurisé** (inscription/connexion JWT)
+  - **📝 Gestion collaborative de notes** en temps réel
+  - **👥 Multi-utilisateurs** avec propriété des notes
+  - **⚡ Mises à jour instantanées** via Socket.IO
+  - **🛡️ Sécurité avancée** (hachage bcrypt, tokens JWT)
+  - **📱 Interface responsive** avec notifications
+- Dossier : `collaborative-dashboard/`
+
 1. **Envoi d'un message** : Client → Socket.IO → Serveur local → Redis Pub
 2. **Réception du message** : Redis Sub → Tous les serveurs → Tous les clients connectés
 3. **Résultat** : Synchronisation parfaite entre toutes les instances
 
 ## Démarrage rapide
+
+### collaborative-dashboard
+```bash
+cd collaborative-dashboard
+npm install
+npm start
+# Ouvrez http://localhost:3000
+```
 
 ### chat-multi-salons
 ```bash
@@ -64,14 +84,16 @@ $env:PORT=3002; node index.js  # Terminal 3
 - **chat-Websocket** : Communication bidirectionnelle simple avec WebSocket natif
 - **sse_stock_app** : Communication unidirectionnelle serveur→client avec SSE
 - **chat-multi-salons** : Communication bidirectionnelle avancée avec gestion de salons via Socket.IO + **Redis Pub/Sub pour scalabilité**
+- **collaborative-dashboard** : Application collaborative sécurisée avec authentification JWT et gestion d'état temps réel
 
 ## Technologies comparées
 
-| Projet | Technologie | Bidirectionnel | Complexité | Scalabilité | Use Case |
-|--------|------------|----------------|------------|-------------|----------|
-| chat-Websocket | WebSocket | ✅ | Moyenne | ❌ | Chat simple |
-| sse_stock_app | SSE | ❌ | Faible | ❌ | Streaming données |
-| chat-multi-salons | Socket.IO + Redis | ✅ | Élevée | ✅ | Chat multi-utilisateurs scalable |
+| Projet | Technologie | Bidirectionnel | Complexité | Scalabilité | Sécurité | Use Case |
+|--------|------------|----------------|------------|-------------|----------|----------|
+| chat-Websocket | WebSocket | ✅ | Moyenne | ❌ | ❌ | Chat simple |
+| sse_stock_app | SSE | ❌ | Faible | ❌ | ❌ | Streaming données |
+| chat-multi-salons | Socket.IO + Redis | ✅ | Élevée | ✅ | ❌ | Chat multi-utilisateurs scalable |
+| collaborative-dashboard | Socket.IO + JWT | ✅ | Élevée | ❌ | ✅ | App collaborative sécurisée |
 
 ## 🚀 Scalabilité avec Redis Pub/Sub
 

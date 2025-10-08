@@ -1,15 +1,17 @@
-# Node modules
+# Dependencies
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
 # Dependency directories
 jspm_packages/
 
-# Package lock files (optionnel - certains préfèrent les garder)
+# Package lock files (optional - some prefer to keep them)
 # package-lock.json
 # yarn.lock
+# pnpm-lock.yaml
 
 # Runtime data
 pids
@@ -20,6 +22,7 @@ pids
 # Coverage directory used by tools like istanbul
 coverage/
 *.lcov
+.nyc_output
 
 # Logs
 logs/
@@ -31,6 +34,15 @@ logs/
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Build outputs
+dist/
+build/
+.next/
+.nuxt/
+.vuepress/dist
+.cache/
+.parcel-cache/
 
 # OS generated files
 .DS_Store
@@ -48,6 +60,46 @@ $RECYCLE.BIN/
 # Python
 __pycache__/
 *.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg-info/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Serverless directories
+.serverless/
+
+# AWS
+.aws/
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# Real-time applications specific
+*.db
+*.sqlite
+*.sqlite3
 *$py.class
 *.so
 .Python
