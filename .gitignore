@@ -1,24 +1,133 @@
 # Node modules
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+jspm_packages/
+
+# Package lock files (optionnel - certains préfèrent les garder)
+# package-lock.json
+# yarn.lock
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
 
 # Logs
 logs/
 *.log
-npm-debug.log*
 
-# OS
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+
+# Windows
+Desktop.ini
+$RECYCLE.BIN/
 
 # Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Python virtual environments
 .env
 .venv
 ENV/
 venv/
+.venv/
+env/
+.conda/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
 
 # VSCode
 .vscode/
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Build outputs
+build/
+dist/
+out/
+
+# Socket.IO specific
+.nyc_output
+
+# SSL certificates (if any)
+*.pem
+*.key
+*.crt
+
+# Local database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Redis dump file
+dump.rdb
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
