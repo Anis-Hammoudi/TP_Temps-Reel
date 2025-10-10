@@ -32,7 +32,6 @@ Ce dépôt contient des applications collaboratives et des outils temps réel po
 - **collaborative-dashboard/** : Tableau de bord collaboratif avec authentification
 - **Live-App-Temps-Reels/** : Exercices et démonstrations temps réel
 - **sse_stock_app/** : Démo d'application boursière SSE
-- **projet-final/** : Ressources du projet final
 
 ## Démarrage rapide CollabBoard
 
