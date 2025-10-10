@@ -20,54 +20,43 @@ Application de streaming de données boursières en temps réel via Server-Sent 
 Application de chat en temps réel avec système de salons (rooms) utilisant Socket.IO et **Redis Pub/Sub pour la scalabilité**.
 - Technologies : Node.js, Express, Socket.IO, Redis, HTML, CSS, JS
 - Fonctionnalités :
-  - Création et rejoindre des salons
-  - Messages en temps réel par salon
-  - Notifications de connexion/déconnexion
-  - Interface utilisateur responsive
-  - **🆕 Support multi-instances avec Redis Pub/Sub**
-  - **🆕 Haute disponibilité et scalabilité horizontale**
-- Dossier : `chat-multi-salons/`
+# TP_Temps-Reel
 
-## 4. collaborative-dashboard 🆕
-Application de tableau de bord collaboratif avec authentification JWT et gestion de notes en temps réel.
-- Technologies : Node.js, Express, Socket.IO, JWT, bcrypt, HTML, CSS, JS
-- Fonctionnalités :
-  - **🔐 Système d'authentification sécurisé** (inscription/connexion JWT)
-  - **📝 Gestion collaborative de notes** en temps réel
-  - **👥 Multi-utilisateurs** avec propriété des notes
-  - **⚡ Mises à jour instantanées** via Socket.IO
-  - **🛡️ Sécurité avancée** (hachage bcrypt, tokens JWT)
-  - **📱 Interface responsive** avec notifications
-- Dossier : `collaborative-dashboard/`
+Ce dépôt contient des applications collaboratives et des outils temps réel pour l'apprentissage et l'expérimentation.
 
-1. **Envoi d'un message** : Client → Socket.IO → Serveur local → Redis Pub
-2. **Réception du message** : Redis Sub → Tous les serveurs → Tous les clients connectés
-3. **Résultat** : Synchronisation parfaite entre toutes les instances
+## Projets
 
-## Démarrage rapide
+- **collabboard/** : Éditeur de texte collaboratif en temps réel (Node.js, Express, Socket.IO, Redis)
+- **chat-multi-salons/** : Application de chat multi-salons
+- **chat-Websocket/** : Application de chat basée sur WebSocket
+- **collaborative-dashboard/** : Tableau de bord collaboratif avec authentification
+- **Live-App-Temps-Reels/** : Exercices et démonstrations temps réel
+- **sse_stock_app/** : Démo d'application boursière SSE
+- **projet-final/** : Ressources du projet final
 
-### collaborative-dashboard
-```bash
-cd collaborative-dashboard
-npm install
-npm start
-# Ouvrez http://localhost:3000
-```
+## Démarrage rapide CollabBoard
 
-### chat-multi-salons
-```bash
-cd chat-multi-salons
-npm install
+1. Aller dans le dossier `collabboard` :
+  ```
+  cd collabboard
+  npm install
+  node server/index.js
+  ```
+2. (Optionnel) Lancer Redis pour le scaling multi-instance :
+  ```
+  docker run --name redis-collabboard -p 6379:6379 redis
+  ```
+3. Ouvrir `http://localhost:3000/` dans votre navigateur.
 
-# Démarrer Redis (requis pour la scalabilité)
-docker run --name my-redis -p 6379:6379 -d redis/redis-stack-server:latest
+## Installation générale
 
-# Option 1: Instance unique
-npm start
+- Chaque projet est autonome dans son dossier.
+- Node.js est requis pour la plupart des applications serveur.
+- Consultez le README spécifique de chaque projet pour les instructions détaillées.
 
-# Option 2: Plusieurs instances (scalabilité)
-$env:PORT=3000; node index.js # Terminal 1
-$env:PORT=3001; node index.js  # Terminal 2
+## Licence
+
+MIT
 $env:PORT=3002; node index.js  # Terminal 3
 
 # Testez sur http://localhost:3000, http://localhost:3001, etc.
@@ -86,16 +75,7 @@ $env:PORT=3002; node index.js  # Terminal 3
 - **chat-multi-salons** : Communication bidirectionnelle avancée avec gestion de salons via Socket.IO + **Redis Pub/Sub pour scalabilité**
 - **collaborative-dashboard** : Application collaborative sécurisée avec authentification JWT et gestion d'état temps réel
 
-## Technologies comparées
-
-| Projet | Technologie | Bidirectionnel | Complexité | Scalabilité | Sécurité | Use Case |
-|--------|------------|----------------|------------|-------------|----------|----------|
-| chat-Websocket | WebSocket | ✅ | Moyenne | ❌ | ❌ | Chat simple |
-| sse_stock_app | SSE | ❌ | Faible | ❌ | ❌ | Streaming données |
-| chat-multi-salons | Socket.IO + Redis | ✅ | Élevée | ✅ | ❌ | Chat multi-utilisateurs scalable |
-| collaborative-dashboard | Socket.IO + JWT | ✅ | Élevée | ❌ | ✅ | App collaborative sécurisée |
-
-## 🚀 Scalabilité avec Redis Pub/Sub
+##  Scalabilité avec Redis Pub/Sub
 
 Le projet `chat-multi-salons` démontre comment implémenter la scalabilité horizontale dans une application de chat temps réel :
 

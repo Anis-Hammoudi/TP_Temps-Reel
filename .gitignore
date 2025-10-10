@@ -4,25 +4,25 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+# Node
+node_modules/
+.env
+.DS_Store
+*.log
+npm-debug.log*
 
-# Dependency directories
-jspm_packages/
+# VS Code
+.vscode/
 
-# Package lock files (optional - some prefer to keep them)
-# package-lock.json
-# yarn.lock
-# pnpm-lock.yaml
+# Redis
+redis-data/
 
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
+# OS
+Thumbs.db
 
-# Coverage directory used by tools like istanbul
-coverage/
-*.lcov
-.nyc_output
+# Misc
+*.bak
+*.tmp
 
 # Logs
 logs/
